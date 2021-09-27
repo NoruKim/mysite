@@ -1,0 +1,52 @@
+{% extends "coupang/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+    <table>
+
+        <th>
+            <tr>
+                <td>商品番号</td>
+                <td>{{ product.product_id }}</td>
+            </tr>
+            <tr>
+                <td>商品名</td>
+                <td>{{ product.product_name }}</td>
+            </tr>
+            <tr>
+                <td>価格（税抜き）</td>
+                <td>&yen;{{ product.product_price }}</td>
+            </tr>
+            <tr>
+                <td>商品詳細</td>
+                <td>{{ product.product_desc }}</td>
+            </tr>
+        </th>
+
+    </table>
+
+    <div>
+
+        <a href="{% url 'update' product.pk %}">
+            <input type="submit" value="商品更新">
+        </a>
+
+        <a href="{% url 'delete' product.pk %}">
+            <input type="submit" value="商品削除">
+        </a>
+
+    </div>
+
+    <div>
+
+        <a href="{% url 'main' %}">
+            <input type="submit" value="商品リストへ">
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock content %}

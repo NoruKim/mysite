@@ -1,0 +1,15 @@
+{% extends "coupang/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+    <form method="post" action="{% url 'main' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="更新">
+    </form>
+
+</div>
+
+{% endblock content %}

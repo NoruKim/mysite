@@ -1,0 +1,24 @@
+{% extends "coupang/base.html" %}
+{% load static %}
+{% block content %}
+
+<div>
+    <h1>商品リスト</h1>
+    <h3>{{ lName }} {{ fName }} 様</h3>
+    <br>
+
+    <ul>
+        {% for product in products.all %}
+        <li><a href="{% url 'detail' product.pk %}">{{ product.product_name }}</a>
+        {% endfor %}
+    </ul>
+
+</div>
+<br>
+<div>
+    <a href="{% url 'create' %}">
+        <input type="submit" value="商品登録">
+    </a>
+</div>
+
+{% endblock content %}
